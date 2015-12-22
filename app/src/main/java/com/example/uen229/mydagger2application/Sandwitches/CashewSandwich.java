@@ -9,14 +9,16 @@ import com.example.uen229.mydagger2application.butters.CashewButter;
 public class CashewSandwich {
 
     Butter butter;
+    int count;
     public CashewSandwich(CashewButter cashewButter){
         this.butter=cashewButter;
+        //count++;
     }
 
     @Override
     public String toString() {
         return "CashewSandwich{" +
                 "butter=" + butter +
-                '}';
+                ++count+'}';
     }
 }

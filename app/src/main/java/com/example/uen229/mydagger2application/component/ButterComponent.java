@@ -2,7 +2,6 @@ package com.example.uen229.mydagger2application.component;
 
 import com.example.uen229.mydagger2application.butters.ButterModule;
 import com.example.uen229.mydagger2application.butters.CashewButter;
-import com.example.uen229.mydagger2application.component.scopes.ButterScope;
 
 import dagger.Component;
 
@@ -13,7 +12,7 @@ import dagger.Component;
  * remember,Components connect @Modules With @Inject
  */
 
-@ButterScope
+//@ButterScope
 @Component(modules={ButterModule.class})
 
 public interface ButterComponent {

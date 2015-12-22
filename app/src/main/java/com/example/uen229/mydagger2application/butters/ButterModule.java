@@ -1,7 +1,5 @@
 package com.example.uen229.mydagger2application.butters;
 
-import com.example.uen229.mydagger2application.component.scopes.ButterScope;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -20,7 +18,7 @@ public class ButterModule {
     }
 */
     @Provides
-   @ButterScope
+   //@ButterScope
     CashewButter ProvideCashewButter(){
         return new CashewButter();
 

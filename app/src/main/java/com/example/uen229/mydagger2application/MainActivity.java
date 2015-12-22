@@ -11,16 +11,27 @@ import com.example.uen229.mydagger2application.component.ButterComponent;
 import com.example.uen229.mydagger2application.component.DaggerButterComponent;
 import com.example.uen229.mydagger2application.component.DaggerSandwichComponent;
 import com.example.uen229.mydagger2application.component.SandwichComponent;
+import com.example.uen229.mydagger2application.utensils.Knife;
 
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = getClass().getSimpleName();
+
     //@Inject
     //AlmondButter someAlmondButter;
     @Inject
     CashewSandwich sandwich;
+
+    @Inject
+    CashewSandwich sandwich2;
+
+    @Inject
+    Knife mKnife;
+
+    @Inject
+    Knife mKnife2;
 
     SandwichComponent sandwichComponent;
 
@@ -29,20 +40,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*create thte dependent butter for the sandwich here*/
-        ButterComponent butterComponent=DaggerButterComponent.builder().
+        /*create the dependent butter for the sandwich here*/
+        ButterComponent butterComponent = DaggerButterComponent.builder().
                 butterModule(new ButterModule()).build();
         /*create a scope sandwichcomponent here */
 
-        sandwichComponent=DaggerSandwichComponent.builder().sandwichModule(new SandwichModule()).
+        sandwichComponent = DaggerSandwichComponent.builder().sandwichModule(new SandwichModule()).
                 butterComponent(butterComponent)
                 .build();
         //finally we have a sandwichComponent, lets inject our dependencies
         sandwichComponent.inject(this);
 
-        Log.v(TAG,sandwich.toString());
-       // Log.v(TAG,someAlmondButter.toString());
+        Log.v(TAG, " first:" + sandwich.toString());
+        Log.v(TAG, "second:" + sandwich2.toString());
+        Log.v(TAG, "first knife:" + mKnife.toString());
+        Log.v(TAG, "second knife" + mKnife2.toString());
     }
+
 
     @Override
     protected void onDestroy() {
